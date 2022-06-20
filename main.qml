@@ -202,21 +202,17 @@ ApplicationWindow {
                     }
                 }
 
-                RowLayout{
-                    height: parent.height
+                TextField{
+                    id:inputToken
+                    background:Item{}
                     anchors{
                         left:layoutToken.right
                         right:parent.right
+                        verticalCenter: parent.verticalCenter
                     }
-                    TextField{
-                        id:inputToken
-                        implicitHeight: parent.height
-                        Layout.fillWidth: true
-                        background:Item{}
-                        placeholderText: "请输入token"
-                        verticalAlignment:Text.AlignVCenter
-                    }
+                    placeholderText: "请输入token"
                 }
+
 
             }
 

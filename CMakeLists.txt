@@ -37,8 +37,32 @@ target_compile_definitions(appSocketTool
 target_link_libraries(appSocketTool
     PRIVATE Qt6::Quick
     Qt6::WebSockets
-    ${PROJECT_SOURCE_DIR}/libprotobufd.lib
     )
+
+if (CMAKE_HOST_WIN32)
+    set(WINDOWS 1)
+elseif (CMAKE_HOST_APPLE)
+    set(MACOS 1)
+elseif (CMAKE_HOST_UNIX)
+    set(LINUX 1)
+endif ()
+
+if (MACOS)
+    message("配置MACOS VCPKG 路径")
+    target_link_libraries(appSocketTool
+        PRIVATE
+        ${PROJECT_SOURCE_DIR}/libprotobufd.a
+        )
+elseif (WINDOWS)
+     message("配置WINDOWS VCPKG 路径")
+    target_link_libraries(appSocketTool
+        PRIVATE
+        ${PROJECT_SOURCE_DIR}/libprotobufd.lib
+        )
+elseif (LINUX)
+    message("配置LINUX VCPKG 路径")
+endif ()
+
 target_include_directories(appSocketTool
     PRIVATE ${PROJECT_SOURCE_DIR}/google
 )
