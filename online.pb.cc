@@ -20,24 +20,8 @@ PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::PROTOBUF_NAMESPACE_ID;
 namespace _pbi = _pb::internal;
 
-namespace com {
-namespace zhuzichu {
-namespace protocol {
-PROTOBUF_CONSTEXPR Online_User::Online_User(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.username_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.id_)*/uint64_t{0u}
-  , /*decltype(_impl_.online_)*/false
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct Online_UserDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Online_UserDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~Online_UserDefaultTypeInternal() {}
-  union {
-    Online_User _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Online_UserDefaultTypeInternal _Online_User_default_instance_;
+namespace im {
+namespace proto {
 PROTOBUF_CONSTEXPR Online::Online(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.users_)*/{}
@@ -51,53 +35,43 @@ struct OnlineDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OnlineDefaultTypeInternal _Online_default_instance_;
-}  // namespace protocol
-}  // namespace zhuzichu
-}  // namespace com
-static ::_pb::Metadata file_level_metadata_online_2eproto[2];
+}  // namespace proto
+}  // namespace im
+static ::_pb::Metadata file_level_metadata_online_2eproto[1];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_online_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_online_2eproto = nullptr;
 
 const uint32_t TableStruct_online_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::com::zhuzichu::protocol::Online_User, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::im::proto::Online, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::com::zhuzichu::protocol::Online_User, _impl_.id_),
-  PROTOBUF_FIELD_OFFSET(::com::zhuzichu::protocol::Online_User, _impl_.username_),
-  PROTOBUF_FIELD_OFFSET(::com::zhuzichu::protocol::Online_User, _impl_.online_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::com::zhuzichu::protocol::Online, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::com::zhuzichu::protocol::Online, _impl_.users_),
+  PROTOBUF_FIELD_OFFSET(::im::proto::Online, _impl_.users_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::com::zhuzichu::protocol::Online_User)},
-  { 9, -1, -1, sizeof(::com::zhuzichu::protocol::Online)},
+  { 0, -1, -1, sizeof(::im::proto::Online)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
-  &::com::zhuzichu::protocol::_Online_User_default_instance_._instance,
-  &::com::zhuzichu::protocol::_Online_default_instance_._instance,
+  &::im::proto::_Online_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_online_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\014online.proto\022\025com.zhuzichu.protocol\"q\n"
-  "\006Online\0221\n\005users\030\001 \003(\0132\".com.zhuzichu.pr"
-  "otocol.Online.User\0324\n\004User\022\n\n\002id\030\001 \001(\004\022\020"
-  "\n\010username\030\002 \001(\t\022\016\n\006online\030\003 \001(\010B$\n\025com."
-  "zhuzichu.protocolB\013OnlineProtob\006proto3"
+  "\n\014online.proto\022\010im.proto\032\nuser.proto\"\'\n\006"
+  "Online\022\035\n\005users\030\001 \003(\0132\016.im.proto.UserB$\n"
+  "\025com.zhuzichu.protocolB\013OnlineProtob\006pro"
+  "to3"
   ;
+static const ::_pbi::DescriptorTable* const descriptor_table_online_2eproto_deps[1] = {
+  &::descriptor_table_user_2eproto,
+};
 static ::_pbi::once_flag descriptor_table_online_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_online_2eproto = {
-    false, false, 198, descriptor_table_protodef_online_2eproto,
+    false, false, 123, descriptor_table_protodef_online_2eproto,
     "online.proto",
-    &descriptor_table_online_2eproto_once, nullptr, 0, 2,
+    &descriptor_table_online_2eproto_once, descriptor_table_online_2eproto_deps, 1, 1,
     schemas, file_default_instances, TableStruct_online_2eproto::offsets,
     file_level_metadata_online_2eproto, file_level_enum_descriptors_online_2eproto,
     file_level_service_descriptors_online_2eproto,
@@ -108,272 +82,8 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_online_2
 
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_online_2eproto(&descriptor_table_online_2eproto);
-namespace com {
-namespace zhuzichu {
-namespace protocol {
-
-// ===================================================================
-
-class Online_User::_Internal {
- public:
-};
-
-Online_User::Online_User(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:com.zhuzichu.protocol.Online.User)
-}
-Online_User::Online_User(const Online_User& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Online_User* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.username_){}
-    , decltype(_impl_.id_){}
-    , decltype(_impl_.online_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.username_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.username_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_username().empty()) {
-    _this->_impl_.username_.Set(from._internal_username(), 
-      _this->GetArenaForAllocation());
-  }
-  ::memcpy(&_impl_.id_, &from._impl_.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.online_) -
-    reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.online_));
-  // @@protoc_insertion_point(copy_constructor:com.zhuzichu.protocol.Online.User)
-}
-
-inline void Online_User::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.username_){}
-    , decltype(_impl_.id_){uint64_t{0u}}
-    , decltype(_impl_.online_){false}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-  _impl_.username_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.username_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-}
-
-Online_User::~Online_User() {
-  // @@protoc_insertion_point(destructor:com.zhuzichu.protocol.Online.User)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void Online_User::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.username_.Destroy();
-}
-
-void Online_User::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void Online_User::Clear() {
-// @@protoc_insertion_point(message_clear_start:com.zhuzichu.protocol.Online.User)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.username_.ClearToEmpty();
-  ::memset(&_impl_.id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.online_) -
-      reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.online_));
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Online_User::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // uint64 id = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _impl_.id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // string username = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_username();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "com.zhuzichu.protocol.Online.User.username"));
-        } else
-          goto handle_unusual;
-        continue;
-      // bool online = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _impl_.online_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* Online_User::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:com.zhuzichu.protocol.Online.User)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint64 id = 1;
-  if (this->_internal_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_id(), target);
-  }
-
-  // string username = 2;
-  if (!this->_internal_username().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_username().data(), static_cast<int>(this->_internal_username().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "com.zhuzichu.protocol.Online.User.username");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_username(), target);
-  }
-
-  // bool online = 3;
-  if (this->_internal_online() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_online(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:com.zhuzichu.protocol.Online.User)
-  return target;
-}
-
-size_t Online_User::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:com.zhuzichu.protocol.Online.User)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string username = 2;
-  if (!this->_internal_username().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_username());
-  }
-
-  // uint64 id = 1;
-  if (this->_internal_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_id());
-  }
-
-  // bool online = 3;
-  if (this->_internal_online() != 0) {
-    total_size += 1 + 1;
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Online_User::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Online_User::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Online_User::GetClassData() const { return &_class_data_; }
-
-
-void Online_User::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Online_User*>(&to_msg);
-  auto& from = static_cast<const Online_User&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:com.zhuzichu.protocol.Online.User)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!from._internal_username().empty()) {
-    _this->_internal_set_username(from._internal_username());
-  }
-  if (from._internal_id() != 0) {
-    _this->_internal_set_id(from._internal_id());
-  }
-  if (from._internal_online() != 0) {
-    _this->_internal_set_online(from._internal_online());
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void Online_User::CopyFrom(const Online_User& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:com.zhuzichu.protocol.Online.User)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Online_User::IsInitialized() const {
-  return true;
-}
-
-void Online_User::InternalSwap(Online_User* other) {
-  using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.username_, lhs_arena,
-      &other->_impl_.username_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Online_User, _impl_.online_)
-      + sizeof(Online_User::_impl_.online_)
-      - PROTOBUF_FIELD_OFFSET(Online_User, _impl_.id_)>(
-          reinterpret_cast<char*>(&_impl_.id_),
-          reinterpret_cast<char*>(&other->_impl_.id_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Online_User::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_online_2eproto_getter, &descriptor_table_online_2eproto_once,
-      file_level_metadata_online_2eproto[0]);
-}
+namespace im {
+namespace proto {
 
 // ===================================================================
 
@@ -381,11 +91,14 @@ class Online::_Internal {
  public:
 };
 
+void Online::clear_users() {
+  _impl_.users_.Clear();
+}
 Online::Online(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:com.zhuzichu.protocol.Online)
+  // @@protoc_insertion_point(arena_constructor:im.proto.Online)
 }
 Online::Online(const Online& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
@@ -395,7 +108,7 @@ Online::Online(const Online& from)
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:com.zhuzichu.protocol.Online)
+  // @@protoc_insertion_point(copy_constructor:im.proto.Online)
 }
 
 inline void Online::SharedCtor(
@@ -409,7 +122,7 @@ inline void Online::SharedCtor(
 }
 
 Online::~Online() {
-  // @@protoc_insertion_point(destructor:com.zhuzichu.protocol.Online)
+  // @@protoc_insertion_point(destructor:im.proto.Online)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -427,7 +140,7 @@ void Online::SetCachedSize(int size) const {
 }
 
 void Online::Clear() {
-// @@protoc_insertion_point(message_clear_start:com.zhuzichu.protocol.Online)
+// @@protoc_insertion_point(message_clear_start:im.proto.Online)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -442,7 +155,7 @@ const char* Online::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .com.zhuzichu.protocol.Online.User users = 1;
+      // repeated .im.proto.User users = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
@@ -480,11 +193,11 @@ failure:
 
 uint8_t* Online::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:com.zhuzichu.protocol.Online)
+  // @@protoc_insertion_point(serialize_to_array_start:im.proto.Online)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .com.zhuzichu.protocol.Online.User users = 1;
+  // repeated .im.proto.User users = 1;
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_users_size()); i < n; i++) {
     const auto& repfield = this->_internal_users(i);
@@ -496,19 +209,19 @@ uint8_t* Online::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:com.zhuzichu.protocol.Online)
+  // @@protoc_insertion_point(serialize_to_array_end:im.proto.Online)
   return target;
 }
 
 size_t Online::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:com.zhuzichu.protocol.Online)
+// @@protoc_insertion_point(message_byte_size_start:im.proto.Online)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .com.zhuzichu.protocol.Online.User users = 1;
+  // repeated .im.proto.User users = 1;
   total_size += 1UL * this->_internal_users_size();
   for (const auto& msg : this->_impl_.users_) {
     total_size +=
@@ -528,7 +241,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Online::GetClassData() const {
 void Online::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
   auto* const _this = static_cast<Online*>(&to_msg);
   auto& from = static_cast<const Online&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:com.zhuzichu.protocol.Online)
+  // @@protoc_insertion_point(class_specific_merge_from_start:im.proto.Online)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -538,7 +251,7 @@ void Online::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBU
 }
 
 void Online::CopyFrom(const Online& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:com.zhuzichu.protocol.Online)
+// @@protoc_insertion_point(class_specific_copy_from_start:im.proto.Online)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -557,21 +270,16 @@ void Online::InternalSwap(Online* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Online::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_online_2eproto_getter, &descriptor_table_online_2eproto_once,
-      file_level_metadata_online_2eproto[1]);
+      file_level_metadata_online_2eproto[0]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace protocol
-}  // namespace zhuzichu
-}  // namespace com
+}  // namespace proto
+}  // namespace im
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::com::zhuzichu::protocol::Online_User*
-Arena::CreateMaybeMessage< ::com::zhuzichu::protocol::Online_User >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::com::zhuzichu::protocol::Online_User >(arena);
-}
-template<> PROTOBUF_NOINLINE ::com::zhuzichu::protocol::Online*
-Arena::CreateMaybeMessage< ::com::zhuzichu::protocol::Online >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::com::zhuzichu::protocol::Online >(arena);
+template<> PROTOBUF_NOINLINE ::im::proto::Online*
+Arena::CreateMaybeMessage< ::im::proto::Online >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::im::proto::Online >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

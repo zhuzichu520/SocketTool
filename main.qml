@@ -163,12 +163,58 @@ ApplicationWindow {
                             if(controller.state===3){
                                 controller.closeScoket()
                             }else{
-                                controller.connectSocket(inputHostname.text,inputToken.text)
+                                controller.connectSocket(inputHostname.text,inputAccid.text,inputToken.text)
                             }
                         }
                     }
                 }
             }
+
+            Rectangle{
+                height: 34
+                Layout.fillWidth: true
+                Layout.leftMargin: 14
+                Layout.rightMargin: 14
+                Layout.topMargin: 8
+                border{
+                    width: 1
+                    color: "#999999"
+                }
+
+                Rectangle{
+                    id:layoutAccid
+                    color:"#FFE9ECEF"
+                    width: 80
+                    border{
+                        width: 1
+                        color: "#999999"
+                    }
+                    anchors{
+                        left: parent.left
+                        top:parent.top
+                        bottom: parent.bottom
+                    }
+                    Text {
+                        anchors.centerIn: parent
+                        color:"#666666"
+                        text: qsTr("accid")
+                        font.pixelSize: 12
+                    }
+                }
+
+                TextField{
+                    id:inputAccid
+                    background:Item{}
+                    anchors{
+                        left:layoutAccid.right
+                        right:parent.right
+                        verticalCenter: parent.verticalCenter
+                    }
+                    text:"admin"
+                    placeholderText: "请输入accid"
+                }
+            }
+
 
             Rectangle{
                 height: 34
@@ -210,10 +256,9 @@ ApplicationWindow {
                         right:parent.right
                         verticalCenter: parent.verticalCenter
                     }
+                    text:"21232f297a57a5a743894a0e4a801fc3"
                     placeholderText: "请输入token"
                 }
-
-
             }
 
 
@@ -429,13 +474,11 @@ ApplicationWindow {
                     }
 
                     Text{
-                        text:model.username
+                        text:model.name
                         horizontalAlignment: Text.AlignLeft
                         padding: 0
                     }
                 }
-
-
             }
         }
 
