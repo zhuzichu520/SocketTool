@@ -53,12 +53,12 @@ ScoketController::ScoketController(QObject *parent): QObject{parent}
 
         if((unsigned char)frame[0] == 0x1){
             QByteArray data = frame.sliced(1,frame.size()-1);
-            com::zhuzichu::protocol::Message message;
+            im::proto::Message message;
             message.ParseFromString(data.toStdString());
             Q_EMIT textMessageReceived(QString::fromStdString(message.body()));
         }else if((unsigned char)frame[0] == 0x2){
             QByteArray data = frame.sliced(1,frame.size()-1);
-            com::zhuzichu::protocol::Online online;
+            im::proto::Online online;
             online.ParseFromString(data.toStdString());
             std::string json;
             google::protobuf::util::MessageToJsonString(online,&json);
@@ -85,7 +85,7 @@ void ScoketController::closeScoket(){
 }
 
 void ScoketController::sendMessage(const QString &body){
-    com::zhuzichu::protocol::Message message;
+    im::proto::Message message;
     message.set_body(body.toStdString());
     socket->sendBinaryMessage(QByteArray::fromStdString(message.SerializeAsString()));
 }
@@ -96,7 +96,7 @@ ScoketController::~ScoketController()
     delete socket;
 }
 
-void ScoketController::connectSocket(const QString &hostname,const QString &token){
+void ScoketController::connectSocket(const QString &hostname,const QString &accid, const QString &token){
     qDebug()<<"开始连接socket";
-    socket->open(hostname+"/"+token);
+    socket->open(hostname+"?accid="+accid+"&token="+token);
 }

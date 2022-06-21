@@ -26,7 +26,7 @@ public:
 
     Q_SIGNAL void stateChanged();
 
-    Q_INVOKABLE void connectSocket(const QString &hostname,const QString &token);
+    Q_INVOKABLE void connectSocket(const QString &hostname,const QString &accid, const QString &token);
 
     Q_INVOKABLE void closeScoket();
 
