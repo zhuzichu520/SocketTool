@@ -129,7 +129,7 @@ ApplicationWindow {
                         implicitHeight: parent.height
                         Layout.fillWidth: true
                         background:Item{}
-                        text: "ws://127.0.0.1:9999/ws"
+                        text: "ws://192.168.2.24:9999/ws"
                         verticalAlignment:Text.AlignVCenter
                     }
                 }
@@ -332,7 +332,7 @@ ApplicationWindow {
                     hoverEnabled: true
                     cursorShape: Qt.PointingHandCursor
                     onClicked: {
-                        controller.sendMessage(inputSend.text)
+                        controller.sendMessage(inputAccid.text,userModel.get(userList.currentIndex).accid,inputSend.text)
                     }
                 }
             }
@@ -371,7 +371,7 @@ ApplicationWindow {
             width: parent.width
             height: parent.height
             Text{
-                text:"消息记录"
+                text: userModel.get(userList.currentIndex).name + "的消息记录"
                 font.pixelSize: 14
                 Layout.topMargin: 14
                 Layout.leftMargin: 14
@@ -439,46 +439,59 @@ ApplicationWindow {
                 top: parent.top
                 topMargin: 14
             }
-
         }
+
+
 
         ListView{
             id:userList
-            width: parent.width
             model:userModel
             clip: true
             anchors{
                 top: onlineTitle.bottom
                 bottom: parent.bottom
                 topMargin: 8
+                leftMargin: 5
+                rightMargin: 5
+                left: parent.left
+                right: parent.right
             }
+            spacing:5
             delegate: Rectangle{
+                color:ListView.isCurrentItem?"#EEEEEE":"#FFFFFF"
                 width: userList.width
                 height: 48
 
-                border{
-                    color: "#EEEEEE"
-                    width: 1
-                }
-
-                RowLayout{
+                MouseArea{
+                    id:mouseUser
                     anchors.fill: parent
-                    spacing: 0
-
-                    Rectangle{
-                        radius: 4
-                        width: 8
-                        height: 8
-                        Layout.leftMargin: 4
-                        color:model.online ?"#FF28A745":"#FFDC3545"
-                    }
-
-                    Text{
-                        text:model.name
-                        horizontalAlignment: Text.AlignLeft
-                        padding: 0
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        userList.currentIndex = index
                     }
                 }
+
+                Rectangle{
+                    radius: 4
+                    width: 8
+                    height: 8
+                    anchors{
+                        verticalCenter: parent.verticalCenter
+                        left: parent.left
+                        leftMargin: 5
+                    }
+                    color:model.online ?"#FF28A745":"#FFDC3545"
+                }
+
+                Text{
+                    text:model.name
+                    anchors{
+                        verticalCenter: parent.verticalCenter
+                        left: parent.left
+                        leftMargin: 20
+                    }
+                }
+
             }
         }
 

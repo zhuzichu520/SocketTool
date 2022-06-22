@@ -30,7 +30,7 @@ public:
 
     Q_INVOKABLE void closeScoket();
 
-    Q_INVOKABLE void sendMessage(const QString &message);
+    Q_INVOKABLE void sendMessage(const QString &from,const QString &to,const QString &message);
 
     Q_SIGNAL void textMessageReceived(const QString &text);
 

@@ -84,9 +84,11 @@ void ScoketController::closeScoket(){
     socket->close();
 }
 
-void ScoketController::sendMessage(const QString &body){
+void ScoketController::sendMessage(const QString &from,const QString &to, const QString &body){
     im::proto::Message message;
     message.set_body(body.toStdString());
+    message.set_from(from.toStdString());
+    message.set_to(to.toStdString());
     QByteArray data;
     data.append((char)0x01);
     data.append(message.SerializeAsString());
