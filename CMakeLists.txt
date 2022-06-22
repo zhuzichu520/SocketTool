@@ -10,13 +10,13 @@ find_package(Qt6 6.2 COMPONENTS Quick WebSockets REQUIRED)
 qt_add_executable(appSocketTool
     main.cpp
     ScoketController.h ScoketController.cpp
-    message.pb.h message.pb.cc
-    online.pb.h online.pb.cc
-    user.pb.h user.pb.cc
     ByteBuf.h ByteBuf.cpp
     HttpClient.h HttpClient.cpp
     Api.h Api.cpp
     ApiGetUserList.h ApiGetUserList.cpp
+    message.pb.h message.pb.cc
+    online.pb.h online.pb.cc
+    user.pb.h user.pb.cc
 )
 
 qt_add_qml_module(appSocketTool

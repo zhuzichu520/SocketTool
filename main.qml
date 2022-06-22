@@ -210,9 +210,9 @@ ApplicationWindow {
                         right:parent.right
                         verticalCenter: parent.verticalCenter
                     }
+                    text:"admin"
                     placeholderText: "请输入accid"
                 }
-
             }
 
 
@@ -256,11 +256,10 @@ ApplicationWindow {
                         right:parent.right
                         verticalCenter: parent.verticalCenter
                     }
+                    text:"21232f297a57a5a743894a0e4a801fc3"
                     placeholderText: "请输入token"
                 }
-
             }
-
 
             Rectangle{
                 Layout.fillWidth: true
@@ -479,8 +478,6 @@ ApplicationWindow {
                         padding: 0
                     }
                 }
-
-
             }
         }
 

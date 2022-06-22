@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QDebug>
 #include <QMetaEnum>
-#include <Message.pb.h>
+#include <message.pb.h>
 #include <ByteBuf.h>
 #include <QtWebSockets>
 #include <online.pb.h>
