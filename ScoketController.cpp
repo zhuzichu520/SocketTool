@@ -87,7 +87,10 @@ void ScoketController::closeScoket(){
 void ScoketController::sendMessage(const QString &body){
     im::proto::Message message;
     message.set_body(body.toStdString());
-    socket->sendBinaryMessage(QByteArray::fromStdString(message.SerializeAsString()));
+    QByteArray data;
+    data.append((char)0x01);
+    data.append(message.SerializeAsString());
+    socket->sendBinaryMessage(QByteArray::fromStdString(data.toStdString()));
 }
 
 ScoketController::~ScoketController()
