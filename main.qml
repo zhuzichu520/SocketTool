@@ -33,6 +33,7 @@ ApplicationWindow {
         id:controller
         onTextMessageReceived:
             (text)=> {
+                console.debug(text)
                 var time = getCurrentTime()
                 receiveModel.append({time:time,text:text})
             }

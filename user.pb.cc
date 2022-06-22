@@ -32,7 +32,7 @@ PROTOBUF_CONSTEXPR User::User(
   , /*decltype(_impl_.birth_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.mobile_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.ex_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.gender_)*/0
+  , /*decltype(_impl_.gender_)*/0u
   , /*decltype(_impl_.online_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct UserDefaultTypeInternal {
@@ -80,7 +80,7 @@ const char descriptor_table_protodef_user_2eproto[] PROTOBUF_SECTION_VARIABLE(pr
   "\n\nuser.proto\022\010im.proto\"\231\001\n\004User\022\r\n\005accid"
   "\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\r\n\005token\030\004 \001(\t\022\014\n\004i"
   "con\030\005 \001(\t\022\014\n\004sign\030\006 \001(\t\022\r\n\005birth\030\007 \001(\t\022\016"
-  "\n\006mobile\030\010 \001(\t\022\016\n\006gender\030\t \001(\005\022\n\n\002ex\030\n \001"
+  "\n\006mobile\030\010 \001(\t\022\016\n\006gender\030\t \001(\r\022\n\n\002ex\030\n \001"
   "(\t\022\016\n\006online\030\013 \001(\010B\"\n\025com.zhuzichu.proto"
   "colB\tUserProtob\006proto3"
   ;
@@ -214,7 +214,7 @@ inline void User::SharedCtor(
     , decltype(_impl_.birth_){}
     , decltype(_impl_.mobile_){}
     , decltype(_impl_.ex_){}
-    , decltype(_impl_.gender_){0}
+    , decltype(_impl_.gender_){0u}
     , decltype(_impl_.online_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -373,7 +373,7 @@ const char* User::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
-      // int32 gender = 9;
+      // uint32 gender = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
           _impl_.gender_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
@@ -498,10 +498,10 @@ uint8_t* User::_InternalSerialize(
         8, this->_internal_mobile(), target);
   }
 
-  // int32 gender = 9;
+  // uint32 gender = 9;
   if (this->_internal_gender() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(9, this->_internal_gender(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(9, this->_internal_gender(), target);
   }
 
   // string ex = 10;
@@ -592,9 +592,9 @@ size_t User::ByteSizeLong() const {
         this->_internal_ex());
   }
 
-  // int32 gender = 9;
+  // uint32 gender = 9;
   if (this->_internal_gender() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_gender());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_gender());
   }
 
   // bool online = 11;

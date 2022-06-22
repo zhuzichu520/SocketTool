@@ -303,13 +303,13 @@ class User final :
   std::string* _internal_mutable_ex();
   public:
 
-  // int32 gender = 9;
+  // uint32 gender = 9;
   void clear_gender();
-  int32_t gender() const;
-  void set_gender(int32_t value);
+  uint32_t gender() const;
+  void set_gender(uint32_t value);
   private:
-  int32_t _internal_gender() const;
-  void _internal_set_gender(int32_t value);
+  uint32_t _internal_gender() const;
+  void _internal_set_gender(uint32_t value);
   public:
 
   // bool online = 11;
@@ -337,7 +337,7 @@ class User final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr birth_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr mobile_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ex_;
-    int32_t gender_;
+    uint32_t gender_;
     bool online_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -705,22 +705,22 @@ inline void User::set_allocated_mobile(std::string* mobile) {
   // @@protoc_insertion_point(field_set_allocated:im.proto.User.mobile)
 }
 
-// int32 gender = 9;
+// uint32 gender = 9;
 inline void User::clear_gender() {
-  _impl_.gender_ = 0;
+  _impl_.gender_ = 0u;
 }
-inline int32_t User::_internal_gender() const {
+inline uint32_t User::_internal_gender() const {
   return _impl_.gender_;
 }
-inline int32_t User::gender() const {
+inline uint32_t User::gender() const {
   // @@protoc_insertion_point(field_get:im.proto.User.gender)
   return _internal_gender();
 }
-inline void User::_internal_set_gender(int32_t value) {
+inline void User::_internal_set_gender(uint32_t value) {
   
   _impl_.gender_ = value;
 }
-inline void User::set_gender(int32_t value) {
+inline void User::set_gender(uint32_t value) {
   _internal_set_gender(value);
   // @@protoc_insertion_point(field_set:im.proto.User.gender)
 }

@@ -180,13 +180,17 @@ class Message final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFromFieldNumber = 1,
-    kToFieldNumber = 2,
-    kBodyFieldNumber = 4,
-    kExFieldNumber = 5,
-    kTypeFieldNumber = 3,
+    kFromFieldNumber = 2,
+    kToFieldNumber = 4,
+    kBodyFieldNumber = 6,
+    kExFieldNumber = 7,
+    kIdFieldNumber = 1,
+    kSceneFieldNumber = 3,
+    kTypeFieldNumber = 5,
+    kTimeFieldNumber = 8,
+    kSessionIdFieldNumber = 9,
   };
-  // string from = 1;
+  // string from = 2;
   void clear_from();
   const std::string& from() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -200,7 +204,7 @@ class Message final :
   std::string* _internal_mutable_from();
   public:
 
-  // string to = 2;
+  // string to = 4;
   void clear_to();
   const std::string& to() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -214,7 +218,7 @@ class Message final :
   std::string* _internal_mutable_to();
   public:
 
-  // string body = 4;
+  // string body = 6;
   void clear_body();
   const std::string& body() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -228,7 +232,7 @@ class Message final :
   std::string* _internal_mutable_body();
   public:
 
-  // string ex = 5;
+  // string ex = 7;
   void clear_ex();
   const std::string& ex() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -242,13 +246,49 @@ class Message final :
   std::string* _internal_mutable_ex();
   public:
 
-  // int32 type = 3;
-  void clear_type();
-  int32_t type() const;
-  void set_type(int32_t value);
+  // uint64 id = 1;
+  void clear_id();
+  uint64_t id() const;
+  void set_id(uint64_t value);
   private:
-  int32_t _internal_type() const;
-  void _internal_set_type(int32_t value);
+  uint64_t _internal_id() const;
+  void _internal_set_id(uint64_t value);
+  public:
+
+  // uint32 scene = 3;
+  void clear_scene();
+  uint32_t scene() const;
+  void set_scene(uint32_t value);
+  private:
+  uint32_t _internal_scene() const;
+  void _internal_set_scene(uint32_t value);
+  public:
+
+  // uint32 type = 5;
+  void clear_type();
+  uint32_t type() const;
+  void set_type(uint32_t value);
+  private:
+  uint32_t _internal_type() const;
+  void _internal_set_type(uint32_t value);
+  public:
+
+  // uint64 time = 8;
+  void clear_time();
+  uint64_t time() const;
+  void set_time(uint64_t value);
+  private:
+  uint64_t _internal_time() const;
+  void _internal_set_time(uint64_t value);
+  public:
+
+  // uint64 session_id = 9;
+  void clear_session_id();
+  uint64_t session_id() const;
+  void set_session_id(uint64_t value);
+  private:
+  uint64_t _internal_session_id() const;
+  void _internal_set_session_id(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:im.proto.Message)
@@ -263,7 +303,11 @@ class Message final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr to_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr body_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ex_;
-    int32_t type_;
+    uint64_t id_;
+    uint32_t scene_;
+    uint32_t type_;
+    uint64_t time_;
+    uint64_t session_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -280,7 +324,27 @@ class Message final :
 #endif  // __GNUC__
 // Message
 
-// string from = 1;
+// uint64 id = 1;
+inline void Message::clear_id() {
+  _impl_.id_ = uint64_t{0u};
+}
+inline uint64_t Message::_internal_id() const {
+  return _impl_.id_;
+}
+inline uint64_t Message::id() const {
+  // @@protoc_insertion_point(field_get:im.proto.Message.id)
+  return _internal_id();
+}
+inline void Message::_internal_set_id(uint64_t value) {
+  
+  _impl_.id_ = value;
+}
+inline void Message::set_id(uint64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:im.proto.Message.id)
+}
+
+// string from = 2;
 inline void Message::clear_from() {
   _impl_.from_.ClearToEmpty();
 }
@@ -330,7 +394,27 @@ inline void Message::set_allocated_from(std::string* from) {
   // @@protoc_insertion_point(field_set_allocated:im.proto.Message.from)
 }
 
-// string to = 2;
+// uint32 scene = 3;
+inline void Message::clear_scene() {
+  _impl_.scene_ = 0u;
+}
+inline uint32_t Message::_internal_scene() const {
+  return _impl_.scene_;
+}
+inline uint32_t Message::scene() const {
+  // @@protoc_insertion_point(field_get:im.proto.Message.scene)
+  return _internal_scene();
+}
+inline void Message::_internal_set_scene(uint32_t value) {
+  
+  _impl_.scene_ = value;
+}
+inline void Message::set_scene(uint32_t value) {
+  _internal_set_scene(value);
+  // @@protoc_insertion_point(field_set:im.proto.Message.scene)
+}
+
+// string to = 4;
 inline void Message::clear_to() {
   _impl_.to_.ClearToEmpty();
 }
@@ -380,27 +464,27 @@ inline void Message::set_allocated_to(std::string* to) {
   // @@protoc_insertion_point(field_set_allocated:im.proto.Message.to)
 }
 
-// int32 type = 3;
+// uint32 type = 5;
 inline void Message::clear_type() {
-  _impl_.type_ = 0;
+  _impl_.type_ = 0u;
 }
-inline int32_t Message::_internal_type() const {
+inline uint32_t Message::_internal_type() const {
   return _impl_.type_;
 }
-inline int32_t Message::type() const {
+inline uint32_t Message::type() const {
   // @@protoc_insertion_point(field_get:im.proto.Message.type)
   return _internal_type();
 }
-inline void Message::_internal_set_type(int32_t value) {
+inline void Message::_internal_set_type(uint32_t value) {
   
   _impl_.type_ = value;
 }
-inline void Message::set_type(int32_t value) {
+inline void Message::set_type(uint32_t value) {
   _internal_set_type(value);
   // @@protoc_insertion_point(field_set:im.proto.Message.type)
 }
 
-// string body = 4;
+// string body = 6;
 inline void Message::clear_body() {
   _impl_.body_.ClearToEmpty();
 }
@@ -450,7 +534,7 @@ inline void Message::set_allocated_body(std::string* body) {
   // @@protoc_insertion_point(field_set_allocated:im.proto.Message.body)
 }
 
-// string ex = 5;
+// string ex = 7;
 inline void Message::clear_ex() {
   _impl_.ex_.ClearToEmpty();
 }
@@ -498,6 +582,46 @@ inline void Message::set_allocated_ex(std::string* ex) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:im.proto.Message.ex)
+}
+
+// uint64 time = 8;
+inline void Message::clear_time() {
+  _impl_.time_ = uint64_t{0u};
+}
+inline uint64_t Message::_internal_time() const {
+  return _impl_.time_;
+}
+inline uint64_t Message::time() const {
+  // @@protoc_insertion_point(field_get:im.proto.Message.time)
+  return _internal_time();
+}
+inline void Message::_internal_set_time(uint64_t value) {
+  
+  _impl_.time_ = value;
+}
+inline void Message::set_time(uint64_t value) {
+  _internal_set_time(value);
+  // @@protoc_insertion_point(field_set:im.proto.Message.time)
+}
+
+// uint64 session_id = 9;
+inline void Message::clear_session_id() {
+  _impl_.session_id_ = uint64_t{0u};
+}
+inline uint64_t Message::_internal_session_id() const {
+  return _impl_.session_id_;
+}
+inline uint64_t Message::session_id() const {
+  // @@protoc_insertion_point(field_get:im.proto.Message.session_id)
+  return _internal_session_id();
+}
+inline void Message::_internal_set_session_id(uint64_t value) {
+  
+  _impl_.session_id_ = value;
+}
+inline void Message::set_session_id(uint64_t value) {
+  _internal_set_session_id(value);
+  // @@protoc_insertion_point(field_set:im.proto.Message.session_id)
 }
 
 #ifdef __GNUC__
