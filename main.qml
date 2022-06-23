@@ -129,7 +129,7 @@ ApplicationWindow {
                         implicitHeight: parent.height
                         Layout.fillWidth: true
                         background:Item{}
-                        text: "ws://192.168.2.24:9999/ws"
+                        text: "ws://127.0.0.1:9999/ws"
                         verticalAlignment:Text.AlignVCenter
                     }
                 }

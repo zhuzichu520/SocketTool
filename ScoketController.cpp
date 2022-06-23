@@ -50,7 +50,6 @@ ScoketController::ScoketController(QObject *parent): QObject{parent}
             buffer.append(s.asprintf("0x%02x ",(unsigned char)frame.at(i)));
         }
         qDebug()<<"原始数据"<<buffer;
-
         if((unsigned char)frame[0] == 0x1){
             QByteArray data = frame.sliced(1,frame.size()-1);
             im::proto::Message message;
@@ -89,10 +88,10 @@ void ScoketController::sendMessage(const QString &from,const QString &to, const 
     message.set_body(body.toStdString());
     message.set_from(from.toStdString());
     message.set_to(to.toStdString());
-    QByteArray data;
-    data.append((char)0x01);
-    data.append(message.SerializeAsString());
-    socket->sendBinaryMessage(QByteArray::fromStdString(data.toStdString()));
+    sh::ByteBuf buf;
+    buf.writeChar(0x01);
+    buf.writeBytes(sh::ByteBuf(message.SerializeAsString()));
+    socket->sendBinaryMessage(QByteArray::fromStdString(buf.data()));
 }
 
 ScoketController::~ScoketController()
